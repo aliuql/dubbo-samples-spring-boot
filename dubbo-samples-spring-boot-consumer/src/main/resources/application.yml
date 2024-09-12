@@ -1,0 +1,31 @@
+dubbo:
+    application:
+        name: dubbo-consumer
+        register-mode: instance
+        metadata-type: local
+        qos-enable: false
+        logger: slf4j
+    config-center:
+        address: nacos://dubbo.nacos:38848
+        username: nacos
+        password: app@qwe123
+        namespace: dev
+        group: dubbo
+    registry:
+        address: nacos://dubbo.nacos:38848
+        username: nacos
+        password: app@qwe123
+        parameters:
+            namespace: dev
+        group: dubbo
+        cluster: default
+    metadata-report:
+        address: nacos://dubbo.nacos:38848
+        username: nacos
+        password: app@qwe123
+        parameters:
+            namespace: dev
+        group: dubbo
+    reference:
+        org.apache.dubbo.springboot.demo.DemoService.sayHello.timeout: 41000
+        org.apache.dubbo.springboot.demo.DemoService.timeout: 31000

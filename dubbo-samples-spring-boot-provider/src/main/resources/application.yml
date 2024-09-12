@@ -1,0 +1,38 @@
+dubbo:
+    application:
+        name: dubbo-provider
+        register-mode: all
+        metadata-type: local
+        qos-enable: false
+        logger: slf4j
+    config-center:
+        address: nacos://150.158.15.11:38848
+        username: nacos
+        password: app@qwe123
+        namespace: dev
+        group: dubbo
+    protocols:
+        tri:
+            name: tri
+            port: 50052
+        dubbo:
+            name: dubbo
+            port: 38008
+    registry:
+        address: nacos://150.158.15.11:38848
+        username: nacos
+        password: app@qwe123
+        parameters:
+            namespace: dev
+        group: dubbo
+        cluster: default
+    metadata-report:
+        address: nacos://150.158.15.11:38848
+        username: nacos
+        password: app@qwe123
+        parameters:
+            namespace: dev
+        group: dubbo
+    service:
+        org.apache.dubbo.springboot.demo.DemoService.sayHello.timeout: 40000
+        org.apache.dubbo.springboot.demo.DemoService.timeout: 30000
